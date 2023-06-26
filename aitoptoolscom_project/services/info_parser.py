@@ -24,14 +24,20 @@ class InfoParser:
 
         url = soup.find("a", class_="jet-listing-dynamic-link__link").get("href")
 
-        description = soup.find("div", attrs={"data-id": "b333eef"}).text
+        try:
+            description = soup.find("div", attrs={"data-id": "b333eef"}).text
+        except AttributeError:
+            description = None
 
-        summary = soup.find(
-            "div",
-            attrs={
-                "data-widget_type": "text-editor.default",
-            },
-        ).text
+        try:
+            summary = soup.find(
+                "div",
+                attrs={
+                    "data-widget_type": "text-editor.default",
+                },
+            ).text
+        except AttributeError:
+            summary = None
 
         key_features = ", ".join(
             [
@@ -43,9 +49,12 @@ class InfoParser:
             ]
         )
 
-        media = (
-            soup.find("div", attrs={"data-id": "9debe3e"}).find("img").get("data-src")
-        )
+        try:
+            media = (
+                soup.find("div", attrs={"data-id": "9debe3e"}).find("img").get("data-src")
+            )
+        except AttributeError:
+            media = None
 
         rating = soup.find("div", class_="elementor-star-rating").get("title")
 
