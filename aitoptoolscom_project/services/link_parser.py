@@ -85,6 +85,7 @@ class LinkParser:
         }
         page = 1
         while True:
+            print(f"Parse page {page}")
             data["page_settings[page]"] = page
             response = requests.post(self.url, headers=headers, data=data)
             json_data = response.json()
@@ -111,8 +112,7 @@ class LinkParser:
             ]
 
             for name, link in zip(aitools_names, aitools_links):
-                Link.objects.get_or_create(name=name, link=link)
-                # print(name, link)
+                Link.objects.get_or_create(name=name, url=link)
 
             page += 1
 
@@ -120,4 +120,3 @@ class LinkParser:
 if __name__ == "__main__":
     parser = LinkParser()
     parser.parse()
-    # parser.driver.close()
