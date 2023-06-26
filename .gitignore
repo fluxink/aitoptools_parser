@@ -1,4 +1,4 @@
-env/
+aitoptoolscom-env/
 __pycache__/
 migrations/
 *.sqlite3
