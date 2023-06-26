@@ -10,8 +10,8 @@ class Link(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Link'
-        verbose_name_plural = 'Links'
+        verbose_name = "Link"
+        verbose_name_plural = "Links"
 
 
 class Info(models.Model):
@@ -29,5 +29,5 @@ class Info(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Info'
-        verbose_name_plural = 'Infos'
+        verbose_name = "Info"
+        verbose_name_plural = "Infos"
